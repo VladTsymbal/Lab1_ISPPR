@@ -1,0 +1,37 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+          [ ['Phrases'],
+            ['Студенти вивчають на першому курсі системи управління БД'],
+            ['Студенти вивчають на першому курсі основи програмування'],
+            ['Студенти вивчають на другому курсі обєктно орієнтоване програмування'],
+            ['Студенти вивчають на другому курсі вищу математику'],
+            ['Студенти вивчають на третьому курсі захист інформаційних мереж'],
+            ['Студенти вивчають на третьому курсі системи розробки ПЗ'],
+          ]
+        );
+
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            word: 'SQL'
+          }
+        };
+
+        var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_basic" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+   
