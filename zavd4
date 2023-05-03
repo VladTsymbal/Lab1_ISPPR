@@ -1,0 +1,37 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+          [ ['Phrases'],
+            ['Computer is a machine'],
+            ['Computer can be programmed'],
+            ['Computer can perform a programs'],
+            ['Computer system includes hardware'],
+            ['Computer system includes operating system (main software)'],
+            ['Computer system includes peripheral equipment'],
+          ]
+        );
+
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            word: 'Computer'
+          }
+        };
+
+        var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_basic" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+   
